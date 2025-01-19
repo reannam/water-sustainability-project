@@ -1,1 +1,1 @@
-# water-sustainability-project
+# Water Sustainability Project
