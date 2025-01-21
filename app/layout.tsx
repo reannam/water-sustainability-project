@@ -15,12 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <NavBar />
-     <body>{children}
-
-     
-     </body>
-        
+      <body>
+        <NavBar /> {/* Move the NavBar here */}
+        {children}
+      </body>
     </html>
   );
 }
