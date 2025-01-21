@@ -3,7 +3,7 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
-    <main className="bg-gray-100 py-8">
+    <footer className="bg-gray-100 py-8 mt-auto">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex space-x-4">
@@ -59,6 +59,6 @@ export function Footer() {
           © {new Date().getFullYear()} Reanna McEldowney and Eoghan Gallagher.
         </div>
       </div>
-    </main>
+    </footer>
   );
 }

@@ -4,7 +4,6 @@ import "./globals.css";
 import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
 
-
 export const metadata: Metadata = {
   title: "AquaAlert NI",
   description: "App for water sustainability project",
@@ -17,11 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <NavBar /> {/* Move the NavBar here */}
-        {children}
+      <body className="flex flex-col min-h-screen">
+        <NavBar />
+        <main className="flex-1">{children}</main> {/* Main content takes up available space */}
+        <Footer />
       </body>
     </html>
-
   );
 }
