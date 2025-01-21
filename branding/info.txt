@@ -1,0 +1,7 @@
+Green - #46a51f
+Lighter - #D9ECD1
+
+Turquoise - #0097b2
+Lighter - #CAE9EE
+
+for more tints: https://www.htmlcsscolor.com/hex/46a51f
