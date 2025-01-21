@@ -2,8 +2,42 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      Nonsense
-    </div>
+    <html>
+      <body>
+        <div className="image-row">
+          <Image 
+            src="/images/loughNeagh.jpg" 
+            alt="Lough Neagh"
+            width={200}
+            height={200}
+            className="image-border"  // Add the border class here
+          />
+          <Image 
+            src="/images/plasticPollution.jpg" 
+            alt="Plastic Pollution"
+            width={200}
+            height={200}
+            className="image-border"  // Add the border class here
+          />
+          <Image 
+            src="/images/manureRunoff.jpg" 
+            alt="Agricultural Pollution"
+            width={200}
+            height={200}
+            className="image-border"  // Add the border class here
+          />
+          <Image 
+            src="/images/historicalDataImage.jpg" 
+            alt="Historical"
+            width={200}
+            height={200}
+            className="image-border"  // Add the border class here
+          />
+        </div>
+        <div>
+          <h1>Get Involved!</h1>
+        </div>
+      </body>
+    </html>
   );
 }
