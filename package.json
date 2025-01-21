@@ -1,25 +1,27 @@
 {
-  "name": "water-sustainability-project",
-  "version": "1.0.0",
-  "description": "The focus of this project is to create some form of web app solution, that will benefit particularly Northern Ireland, relating to sustainability surrounding our water.",
-  "main": "index.js",
+  "name": "water-sustainability",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/app.js",
-    "dev": "nodemon src/app.ts"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@types/nunjucks": "^3.2.6",
-    "express": "^4.21.2",
-    "nunjucks": "^3.2.4"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.5"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.10.7",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.5",
+    "@eslint/eslintrc": "^3"
   }
 }
