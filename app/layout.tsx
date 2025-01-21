@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Footer } from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <>
+      <html lang="en">
+        <body>
+          {children}
+
+          <Footer />
+        </body>
+      </html>
+    </>
   );
 }
