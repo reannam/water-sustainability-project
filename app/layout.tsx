@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
+
 
 export const metadata: Metadata = {
   title: "AquaAlert NI",
@@ -20,5 +22,6 @@ export default function RootLayout({
         {children}
       </body>
     </html>
+
   );
 }
