@@ -334,3 +334,52 @@ html, body {
   line-height: 1.6;
   color: #333;
 }
+
+/* for the contact-us page */
+/* General container styles */
+.contact-us-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Title styles */
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;  /* Bold text */
+  color: var(--turquoise);  /* Dark turquoise color */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Content section styles */
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Section titles */
+.contact-content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--turquoise);  /* Dark turquoise for section titles */
+  margin-top: 20px;
+}
+
+/* Paragraph styles */
+.contact-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Links */
+.contact-content a {
+  color: var(--turquoise);  /* Dark turquoise for links */
+  text-decoration: none;
+}
+
+.contact-content a:hover {
+  text-decoration: underline;
+}
