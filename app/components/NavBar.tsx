@@ -23,7 +23,7 @@ const NavBar = () => {
             <Link href="/nearme" className="border-r border-gray-600 pr-5">
               Near Me
             </Link>
-            <Link href="#live-map" className="border-r border-gray-600 pr-5">
+            <Link href="/live-map" className="border-r border-gray-600 pr-5">
               Live Map
             </Link>
             <Link href="#submit-report" className="border-r border-gray-600 pr-5">
