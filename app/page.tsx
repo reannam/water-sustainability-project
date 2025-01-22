@@ -45,8 +45,12 @@ export default function Home() {
           <button className="image-button">Historical</button>
         </div>
       </div>
-      <div>
-        <h1 className="get-involved-heading">Get Involved!</h1>
+      <div className="mt-16 text-center">
+        <h2 className="text-4xl font-bold text-sky-700 mb-8">Get Involved!</h2>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <button className="image-button" id="homePageButton">Sign Up</button>
+        <button className="image-button" id="homePageButton">Volunteer</button>
+        </div>
       </div>
     </main>
   );

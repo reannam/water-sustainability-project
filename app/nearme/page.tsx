@@ -41,7 +41,7 @@ export default function NearMePage() {
     const postcodeRegex =
       /^[A-Z]{1,2}[0-9][A-Z0-9]? [0-9][ABD-HJLNP-UW-Z]{2}$/i;
     if (!postcodeRegex.test(postcode)) {
-      setError("Please enter a valid UK postcode");
+      setError("Please enter a valid NI postcode");
       setIsLoading(false);
       return;
     }
@@ -78,7 +78,7 @@ export default function NearMePage() {
                 id="postcode"
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value)}
-                placeholder="e.g. SW1A 1AA"
+                placeholder="e.g. BT1 1AA"
                 className="mt-1"
               />
             </div>
