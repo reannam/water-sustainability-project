@@ -6,22 +6,22 @@ import { Button } from "@/components/ui/button";
 export default function ImageGrid() {
   const images = [
     {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0V7gc8a7najvWjyrH7y0Kx0JcaoaLY.png",
+      src: "/images/random1.png",
       alt: "Green waters of Lough Neagh showing signs of pollution",
       label: "Lough Neagh",
     },
     {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0V7gc8a7najvWjyrH7y0Kx0JcaoaLY.png",
+      src: "/images/random2.jpg",
       alt: "Plastic bottles polluting water",
       label: "Plastic Pollution",
     },
     {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0V7gc8a7najvWjyrH7y0Kx0JcaoaLY.png",
+      src: "/images/random3.jpg",
       alt: "People observing water pollution effects",
       label: "Agricultural Pollution",
     },
     {
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0V7gc8a7najvWjyrH7y0Kx0JcaoaLY.png",
+      src: "/images/random4.jpg",
       alt: "Historical image of industrial discharge",
       label: "Historical",
     },
