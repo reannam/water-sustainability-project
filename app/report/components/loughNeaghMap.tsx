@@ -21,36 +21,42 @@ const locations = [
     position: [54.7134, -6.2079],
     population: 23000,
     reports: 15,
+    mostRecent: "Algae",
   },
   {
     name: "Lurgan",
     position: [54.4634, -6.3335],
     population: 25000,
     reports: 22,
+    mostRecent: "Drinking Water",
   },
   {
     name: "Cookstown",
     position: [54.6425, -6.745],
     population: 11000,
     reports: 8,
+    mostRecent: "Water Pollution",
   },
   {
     name: "Magherafelt",
     position: [54.7553, -6.6075],
     population: 8800,
     reports: 12,
+    mostRecent: "Algae",
   },
   {
     name: "Portadown",
     position: [54.4195, -6.4538],
     population: 22000,
     reports: 18,
+    mostRecent: "Drinking Water",
   },
   {
     name: "Toomebridge",
     position: [54.7508, -6.4605],
     population: 800,
     reports: 5,
+    mostRecent: "Water Pollution",
   },
 ];
 
@@ -84,6 +90,9 @@ export default function LoughNeaghMap() {
                 Population: {location.population.toLocaleString()}
               </p>
               <p className="text-sm">Reports: {location.reports}</p>
+              <p className="text-sm">
+                Most Recent Report: {location.mostRecent}
+              </p>
             </div>
           </Popup>
           <div
