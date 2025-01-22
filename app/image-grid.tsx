@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function ImageGrid() {
   const images = [
@@ -11,21 +11,21 @@ export default function ImageGrid() {
       label: "Lough Neagh",
     },
     {
-      src: "/images/plasticPollution.jpg",
+      src: "/images/loughNeagh.jpg",
       alt: "Plastic bottles polluting water",
       label: "Plastic Pollution",
     },
     {
-      src: "/images/manureRunoff.jpg",
+      src: "/images/loughNeagh.jpg",
       alt: "People observing water pollution effects",
       label: "Agricultural Pollution",
     },
     {
-      src: "/images/historicalDataImage.jpg",
+      src: "/images/loughNeagh.jpg",
       alt: "Historical image of industrial discharge",
       label: "Historical",
     },
-  ];
+  ]
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -40,9 +40,7 @@ export default function ImageGrid() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <span className="mt-3 px-4 py-2 bg-sky-100 text-sky-700 rounded-full font-medium">
-              {image.label}
-            </span>
+            <span className="mt-3 px-4 py-2 bg-sky-100 text-sky-700 rounded-full font-medium">{image.label}</span>
           </div>
         ))}
       </div>
@@ -50,22 +48,15 @@ export default function ImageGrid() {
       <div className="mt-16 text-center">
         <h2 className="text-4xl font-bold text-sky-700 mb-8">Get Involved!</h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            variant="default"
-            size="lg"
-            className="bg-sky-600 hover:bg-sky-700"
-          >
+          <Button variant="default" size="lg" className="bg-sky-600 hover:bg-sky-700">
             Sign Up
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-sky-600 text-sky-600 hover:bg-sky-50"
-          >
+          <Button variant="outline" size="lg" className="border-sky-600 text-sky-600 hover:bg-sky-50">
             Volunteer
           </Button>
         </div>
       </div>
     </div>
-  );
+  )
 }
+
