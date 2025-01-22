@@ -10,7 +10,7 @@ export default function Home() {
             alt="Lough Neagh"
             width={300}
             height={300}
-            className="image-border"
+            className="image-border object-cover hover:scale-105 transition-transform duration-300"
           />
           <button className="image-button">Lough Neagh</button>
         </div>
@@ -20,7 +20,7 @@ export default function Home() {
             alt="Plastic Pollution"
             width={300}
             height={300}
-            className="image-border"
+            className="image-border object-cover hover:scale-105 transition-transform duration-300"
           />
           <button className="image-button">Plastic Pollution</button>
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
             alt="Agricultural Pollution"
             width={300}
             height={300}
-            className="image-border"
+            className="image-border object-cover hover:scale-105 transition-transform duration-300"
           />
           <button className="image-button">Agricultural Pollution</button>
         </div>
@@ -40,7 +40,7 @@ export default function Home() {
             alt="Historical"
             width={300}
             height={300}
-            className="image-border"
+            className="image-border object-cover hover:scale-105 transition-transform duration-300"
           />
           <button className="image-button">Historical</button>
         </div>
