@@ -66,13 +66,61 @@ html, body {
     display: flex;
     flex-direction: column;
   }
-  
-  /* Style the footer to stay at the bottom */
-  footer {
-    background-color: #1E90FF; /* Example background color */
+
+  #footing {
+    background-color: #9cd5df; /* Example background color */
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: relative; /* Default positioning for the footer */
+    position: relative; /* Keep the default positioning for the footer */
+  }
+  
+  #socialMedia {
+    position: absolute;
+    left: 40px; /* Adjust this value to move it from the left edge */
+    bottom: 20px; /* Position from the bottom */
+  }
+  
+  #footerTexts {
+    color: #007385;
+    text-align: right;
+    position: absolute;
+    right: 40px; /* Keep it 40px from the right edge */
+    bottom: 20px; /* Position from the bottom */
+    padding: 10;
+  }
+  
+  #heading {
+    background-color: #9cd5df; /* Header background color */
+    color: white;
+    padding: 20px 20px 20px 40px; /* Padding: top-bottom 20px, left 40px, right 20px */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out logo and navigation links */
+    height: 70px;
+  }
+  
+  #headerimg {
+    /* max-height: 70px; /* Adjust the maximum height of the logo */
+    /* padding-left: 0; */ 
+    position: absolute;
+    left: 40px; /* Adjust this value to move it from the left edge */
+    top: 7px; /* Position from the bottom */
+  }
+  
+  #headerLinks {
+    margin-left: auto; /* Push the links to the far right */
+    margin-right: 0; /* Remove extra margin on the right */
+    display: flex; /* Use flexbox for navigation links */
+    gap: 20px; /* Space between navigation links */
+    font-weight: bold; /* Make links more prominent */
+    color: #007385; /* Link color */
+    padding-right: 0; /* Ensure no additional padding on the right */
+    color: #007385;
+    text-align: right;
+    position: absolute;
+    right: 40px; /* Keep it 40px from the right edge */
+    top: 22px; /* Position from the bottom */
+    padding: 10;
   }
   

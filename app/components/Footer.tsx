@@ -3,10 +3,11 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-100 py-8 mt-auto">
+    <footer className="py-8 mt-auto" id="footing">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="flex space-x-4">
+          {/* Social Media Icons on the Left */}
+          <div className="flex space-x-4" id="socialMedia">
             <Link
               href="https://facebook.com"
               target="_blank"
@@ -40,18 +41,18 @@ export function Footer() {
               <Linkedin className="w-6 h-6 text-gray-600 hover:text-blue-800 transition-colors" />
             </Link>
           </div>
-          <div className="flex space-x-4 ">
+          {/* Footer Texts on the Right */}
+          <div className="flex space-x-4" id="footerTexts">
             <Link
               href="/contact"
-              className="text-gray-600 hover:text-gray-900 transition-colors border-r border-gray-500 pr-5"
+              className="border-r border-gray-500 pr-5"
             >
-              Contact Us
+              <strong>Contact Us</strong>
             </Link>
             <Link
               href="/privacy-policy"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              Privacy Policy
+              <strong>Privacy Policy</strong>
             </Link>
           </div>
         </div>
