@@ -17,13 +17,19 @@ const NavBar = () => {
 
           {/* Navigation Links on the Right */}
           <div className="flex space-x-4" id="headerLinks">
-            <Link href="#about" className="border-r border-gray-600 pr-5">
-              About
+            <Link href="/latest-news" className="border-r border-gray-600 pr-5">
+              Latest News
             </Link>
-            <Link href="#services" className="border-r border-gray-600 pr-5">
-              Services
+            <Link href="/nearme" className="border-r border-gray-600 pr-5">
+              Near Me
             </Link>
-            <Link href="#contact">Contact</Link>
+            <Link href="#live-map" className="border-r border-gray-600 pr-5">
+              Live Map
+            </Link>
+            <Link href="#submit-report" className="border-r border-gray-600 pr-5">
+              Submit Report
+            </Link>
+            <Link href="/about-us">About Us</Link>
           </div>
         </div>
       </div>
