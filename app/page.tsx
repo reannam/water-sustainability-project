@@ -45,7 +45,7 @@ export default function Home() {
           <button className="image-button">Historical</button>
         </div>
       </div>
-      <div className="mt-16 text-center">
+      <div className="mt-16 text-center my-7">
         <h2 className="text-4xl font-bold text-sky-700 mb-8">Get Involved!</h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button className="image-button" id="homePageButton">Sign Up</button>
