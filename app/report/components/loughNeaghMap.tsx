@@ -3,13 +3,19 @@ import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@radix-ui/react-label";
 import { RadioGroup, RadioGroupItem } from "@radix-ui/react-radio-group";
 import { Input } from "@/components/ui/input";
 import "leaflet/dist/leaflet.css";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function LoughNeaghMap() {
   const icon = new Icon({
@@ -65,11 +71,40 @@ export function LoughNeaghMap() {
       reports: 5,
       mostRecent: "Water Pollution",
     },
+    {
+      name: "Belfast",
+      position: [54.5973, -5.9301],
+      population: 345000,
+      reports: 20,
+      mostRecent: "Pollution",
+    },
+    {
+      name: "Derry / Londonderry",
+      position: [54.9966, -7.3086],
+      population: 85000,
+      reports: 12,
+      mostRecent: "Algae",
+    },
+    {
+      name: "Omagh",
+      position: [54.6009, -7.3056],
+      population: 21000,
+      reports: 5,
+      mostRecent: "Drinking Water",
+    },
+    {
+      name: "Enniskillen",
+      position: [54.3473, -7.6409],
+      population: 13423,
+      reports: 3,
+      mostRecent: "Algae",
+    },
   ];
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [locationsList, setLocationsList] = useState(locations);
   const [waterType, setWaterType] = useState("drinking");
+  const [currentLocation, setCurrentLocation] = useState("Belfast");
   const router = useRouter();
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -77,8 +112,6 @@ export function LoughNeaghMap() {
     setIsSubmitting(true);
 
     const formData = new FormData(event.currentTarget);
-    const location = formData.get("location")?.toString().trim();
-    const waterType = formData.get("waterType")?.toString().trim();
 
     if (!location || !waterType) {
       alert("Please fill in all fields.");
@@ -86,85 +119,42 @@ export function LoughNeaghMap() {
       return;
     }
 
+    // Check if the location already exists in the list
     const locationIndex = locationsList.findIndex(
-      (loc) => loc.name.toLowerCase() === location.toLowerCase()
+      (loc) => loc.name.toLowerCase() === currentLocation.toLowerCase()
     );
+
     if (locationIndex !== -1) {
-      // Location exists: Increase report counter and update most recent report
+      // Location exists: Increase the reports counter and update the most recent report
       const updatedLocations = [...locationsList];
       updatedLocations[locationIndex] = {
         ...updatedLocations[locationIndex],
         reports: updatedLocations[locationIndex].reports + 1,
-        mostRecent: waterType,
+        mostRecent: waterType, // Update with the selected water type
       };
+      console.log(updatedLocations);
       setLocationsList(updatedLocations);
-      console.log(`Updated "${location}" with a new report.`);
-    } else {
-      // Location does not exist: Add it to the array
-      const newLocation = {
-        name: location,
-        position: [54.7134, -10.2079], // Default position; can be updated later
-        population: 0, // Default population
-        reports: 1,
-        mostRecent: waterType,
-      };
-      setLocationsList([...locationsList, newLocation]);
-      alert("Report submitted successfully");
+      console.log(locationsList);
+      alert(`Report submitted successfully for ${currentLocation}.`);
       router.refresh();
-      setIsSubmitting(false);
+    } else {
+      alert(`Something went wrong trying to report ${location}`);
     }
+
+    setIsSubmitting(false); // Reset submitting state
   }
 
-  const handleWaterTypeChange = (event) => {
-    setWaterType(event.target.value);
+  const handleWaterTypeChange = (value) => {
+    setWaterType(value);
+  };
+
+  const handleCurrentLocationChange = (value) => {
+    setCurrentLocation(value); // Directly set the selected value
   };
 
   return (
-    <main>
-      <MapContainer
-        center={[54.6, -6.4]}
-        zoom={10}
-        style={{ height: "600px", width: "100%" }}
-        className="rounded-lg shadow-lg overflow-hidden"
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        {locations.map((location, index) => (
-          <Marker
-            key={location.name}
-            position={location.position as [number, number]}
-            icon={icon}
-            eventHandlers={{
-              click: () => setActiveLocation(location.name),
-            }}
-          >
-            <Popup>
-              <div className="text-center">
-                <h2 className="text-lg font-semibold">{location.name}</h2>
-                <p className="text-sm">
-                  Population: {location.population.toLocaleString()}
-                </p>
-                <p className="text-sm">Reports: {location.reports}</p>
-                <p className="text-sm">
-                  Most Recent Report: {location.mostRecent}
-                </p>
-              </div>
-            </Popup>
-            <div
-              className={`absolute bg-white rounded-full w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 font-bold text-xs ${
-                activeLocation === location.name ? "bg-blue-500 text-white" : ""
-              }`}
-              style={{ transform: "translate(-50%, -100%)" }}
-            >
-              {location.reports}
-            </div>
-          </Marker>
-        ))}
-      </MapContainer>
-
-      <Card className="w-full max-w-md mx-auto">
+    <main className="grid grid-cols-3">
+      <Card className="w-full max-w-md mx-auto my-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
             Report Water Near You
@@ -180,29 +170,41 @@ export function LoughNeaghMap() {
               <Label htmlFor="location" className="text-sm font-medium">
                 Location
               </Label>
-              <Input
-                id="location"
-                name="location"
-                placeholder="Enter the location"
-                required
-              />
+              <Select
+                onValueChange={(value) => handleCurrentLocationChange(value)} // Update state on selection
+                value={currentLocation}
+              >
+                <SelectTrigger id="waterType" className="w-full">
+                  <SelectValue placeholder="Select Water Type" />
+                </SelectTrigger>
+                <SelectContent className="z-50 bg-white">
+                  {locations.map((location, index) => (
+                    <SelectItem key={`${index}`} value={`${location.name}`}>
+                      {location.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Water Type Field */}
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Water Type</Label>
-              <select
-                id="waterType"
-                name="waterType"
+              <label htmlFor="waterType" className="text-sm font-medium">
+                Water Type
+              </label>
+              <Select
+                onValueChange={(value) => handleWaterTypeChange(value)} // Update state on selection
                 value={waterType}
-                onChange={handleWaterTypeChange}
-                className="w-full p-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
               >
-                <option value="drinking">Drinking Water</option>
-                <option value="algae">Algae</option>
-                <option value="pollution">Water Pollution</option>
-              </select>
+                <SelectTrigger id="waterType" className="w-full">
+                  <SelectValue placeholder="Select Water Type" />
+                </SelectTrigger>
+                <SelectContent className="z-50 bg-white">
+                  <SelectItem value="Drinking Water">Drinking Water</SelectItem>
+                  <SelectItem value="Algae">Algae</SelectItem>
+                  <SelectItem value="Pollution">Water Pollution</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Submit Button */}
@@ -212,6 +214,83 @@ export function LoughNeaghMap() {
           </form>
         </CardContent>
       </Card>
+
+      <Card className=" w-full col-span-2">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-center">
+            Recent Reports
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <MapContainer
+            center={[54.6, -6.4]}
+            zoom={10}
+            style={{ height: "600px", width: "100%" }}
+            className="rounded-lg shadow-lg overflow-hidden"
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {locationsList.map((location, index) => (
+              <Marker
+                key={location.name}
+                position={location.position as [number, number]}
+                icon={icon}
+                eventHandlers={{
+                  click: () => setActiveLocation(location.name),
+                }}
+              >
+                <Popup>
+                  <div className="text-center">
+                    <h2 className="text-lg font-semibold">{location.name}</h2>
+                    <p className="text-sm">
+                      Population: {location.population.toLocaleString()}
+                    </p>
+                    <p className="text-sm">Reports: {location.reports}</p>
+                    <p className="text-sm">
+                      Most Recent Report: {location.mostRecent}
+                    </p>
+                  </div>
+                </Popup>
+                <div
+                  className={`absolute bg-white rounded-full w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 font-bold text-xs ${
+                    activeLocation === location.name
+                      ? "bg-blue-500 text-white"
+                      : ""
+                  }`}
+                  style={{ transform: "translate(-50%, -100%)" }}
+                >
+                  {location.reports}
+                </div>
+              </Marker>
+            ))}
+          </MapContainer>
+        </CardContent>
+      </Card>
     </main>
   );
+
+  const MapComponent = ({ locations }) => {
+    return (
+      <MapContainer
+        center={[54.7134, -6.2079]}
+        zoom={8}
+        style={{ height: "500px" }}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        {locations.map((location) => (
+          <Marker position={location.position} key={location.name}>
+            <Popup>
+              <b>{location.name}</b>
+              <br />
+              Reports: {location.reports}
+              <br />
+              Most Recent: {location.mostRecent}
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    );
+  };
 }
