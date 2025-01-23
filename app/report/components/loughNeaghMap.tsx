@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import { Button } from "@/components/ui/button";
@@ -106,6 +106,13 @@ export function LoughNeaghMap() {
   const [waterType, setWaterType] = useState("drinking");
   const [currentLocation, setCurrentLocation] = useState("Belfast");
   const router = useRouter();
+  const [mapInitialized, setMapInitialized] = useState(false);
+    // Initialize the map once when the component mounts
+    useEffect(() => {
+      if (!mapInitialized) {
+        setMapInitialized(true);
+      }
+    }, [mapInitialized]); // Only run this effect once on mount
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();

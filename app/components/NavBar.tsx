@@ -26,7 +26,7 @@ const NavBar = () => {
             <Link href="/live-map" className="border-r border-gray-600 pr-5">
               Live Map
             </Link>
-            <Link href="#submit-report" className="border-r border-gray-600 pr-5">
+            <Link href="/report" className="border-r border-gray-600 pr-5">
               Submit Report
             </Link>
             <Link href="/about-us">About Us</Link>
