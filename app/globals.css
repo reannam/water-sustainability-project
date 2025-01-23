@@ -38,7 +38,21 @@
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
+
+  #homePageButton
+  {
+    margin-top: 10px; /* Space between the image and the button */
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    color: #007385;
+    font-weight: 700;
+    background-color: #9fccd4; /* Blue button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
   .image-button:hover {
     background-color: #38cbe6; /* Darker blue on hover */
   }
@@ -49,7 +63,7 @@
     text-align: center;
     font-size: 3.1rem; /* Adjust the size as needed */
     font-weight: bold;
-    margin-top: 3rem; /* Adds space above the heading */
+    margin-top: 1000px; /* Adds space above the heading */
   }
   
   /* Ensure the root layout takes the full height of the viewport */
@@ -66,13 +80,306 @@ html, body {
     display: flex;
     flex-direction: column;
   }
-  
-  /* Style the footer to stay at the bottom */
-  footer {
-    background-color: #1E90FF; /* Example background color */
+
+  #footing {
+    background-color: #9cd5df; /* Example background color */
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: relative; /* Default positioning for the footer */
+    position: relative; /* Keep the default positioning for the footer */
   }
   
+  #socialMedia {
+    position: absolute;
+    left: 40px; /* Adjust this value to move it from the left edge */
+    bottom: 20px; /* Position from the bottom */
+  }
+  
+  #footerTexts {
+    color: #007385;
+    text-align: right;
+    position: absolute;
+    right: 40px; /* Keep it 40px from the right edge */
+    bottom: 20px; /* Position from the bottom */
+    padding: 10;
+  }
+  
+  #heading {
+    background-color: #9cd5df; /* Header background color */
+    color: white;
+    padding: 20px 20px 20px 40px; /* Padding: top-bottom 20px, left 40px, right 20px */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out logo and navigation links */
+    height: 70px;
+  }
+  
+  #headerimg {
+    /* max-height: 70px; /* Adjust the maximum height of the logo */
+    /* padding-left: 0; */ 
+    position: absolute;
+    left: 40px; /* Adjust this value to move it from the left edge */
+    top: 7px; /* Position from the bottom */
+  }
+  
+  #headerLinks {
+    margin-left: auto; /* Push the links to the far right */
+    margin-right: 0; /* Remove extra margin on the right */
+    display: flex; /* Use flexbox for navigation links */
+    gap: 20px; /* Space between navigation links */
+    font-weight: bold; /* Make links more prominent */
+    color: #007385; /* Link color */
+    padding-right: 0; /* Ensure no additional padding on the right */
+    color: #007385;
+    text-align: right;
+    position: absolute;
+    right: 40px; /* Keep it 40px from the right edge */
+    top: 22px; /* Position from the bottom */
+    padding: 10;
+  }
+  
+
+  /* Define the color scheme */
+:root {
+  --green: #d2fac2;
+  --green-lighter: #d9ecd1;
+  --turquoise: #0097b2;
+  --turquoise-lighter: #cae9ee;
+}
+
+/* General container styles */
+.about-us-container {
+  padding: 20px;
+  color: #333;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--green);  /* Card color */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 800px;
+  color: rgb(0, 0, 0);  /* Text color in the card */
+}
+
+/* Logo styles */
+.logo {
+  max-width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Content inside the card */
+.card-content {
+  padding: 20px;
+}
+
+/* Intro section styles */
+.intro h2 {
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Mission section styles */
+.mission h3 {
+  font-size: 1.25rem;
+  color: var(--turquoise);
+  margin-top: 20px;
+}
+
+.mission p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Why Lough Neagh section styles */
+.why-lough-neagh h3 {
+  font-size: 1.25rem;
+  color: var(--turquoise);
+  margin-top: 20px;
+}
+
+.why-lough-neagh p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Get Involved section styles */
+.get-involved h3 {
+  font-size: 1.25rem;
+  color: var(--turquoise);
+  margin-top: 20px;
+}
+
+.get-involved p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.get-involved ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.get-involved li {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Button styles */
+.button {
+  background-color: var(--turquoise);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--turquoise-lighter);
+}
+
+/* Vision section styles */
+.vision h3 {
+  font-size: 1.25rem;
+  color: var(--turquoise);
+  margin-top: 20px;
+}
+
+.vision p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+
+/* General container styles */
+.algae-map-container {
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: transparent;  /* No background color */
+}
+
+/* Page title styles */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;  /* Make the title bold */
+  color: var(--turquoise);  /* Dark turquoise color */
+  margin-bottom: 20px;
+}
+
+/* Image styles */
+.map-image {
+  width: 90%;  /* Makes the image large but keeps it responsive */
+  max-width: 1200px;  /* Limits the size of the image */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* General container styles */
+.privacy-policy-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Title styles */
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;  /* Bold text */
+  color: var(--turquoise);  /* Dark turquoise color */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Content section styles */
+.policy-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Section titles */
+.policy-content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--turquoise);  /* Dark turquoise for section titles */
+  margin-top: 20px;
+}
+
+/* Paragraph styles */
+.policy-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* for the contact-us page */
+/* General container styles */
+.contact-us-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Title styles */
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;  /* Bold text */
+  color: var(--turquoise);  /* Dark turquoise color */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Content section styles */
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Section titles */
+.contact-content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--turquoise);  /* Dark turquoise for section titles */
+  margin-top: 20px;
+}
+
+/* Paragraph styles */
+.contact-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Links */
+.contact-content a {
+  color: var(--turquoise);  /* Dark turquoise for links */
+  text-decoration: none;
+}
+
+.contact-content a:hover {
+  text-decoration: underline;
+}
