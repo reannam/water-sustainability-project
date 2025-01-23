@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 // Utility function to load and parse CSV
 const loadCSV = async (url: string): Promise<string[][]> => {
@@ -21,6 +22,7 @@ export default function NearMePage() {
   const [lakeNames, setLakeNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,30 +48,44 @@ export default function NearMePage() {
 
       // Convert CSV rows into structured objects
       const areaLakes = areaLakesCSV.map((row) => ({
+        postcode: row[0].toUpperCase(),
         area: row[1].toUpperCase(), // Ensure case-insensitive comparison
-        lakeIds: row[2]?.split(",") || [], // Assuming lake IDs are comma-separated
+        lakeIds: row[2]
+          .replace(/[^0-9,]/g, "") // Remove everything except digits and commas
+          .split(",") // Split by commas
+          .map(Number),
       }));
 
-      const lakeInfo = lakeInfoCSV.reduce(
-        (map, row) => {
-          map[row[0]] = row[1]; // Map lake ID to lake name
-          return map;
-        },
-        {} as Record<string, string>
-      );
+      console.log(areaLakes[0].lakeIds);
+      console.log(trimmedPostcode);
+
+      const lakeInfo = lakeInfoCSV.reduce((map, row) => {
+        map[row[0]] = row[3]; // Map lake ID to lake name
+        return map;
+      }, {} as Record<string, string>);
 
       // Find lakes for the entered postcode
-      const matchedArea = areaLakes.find((area) => area.area === trimmedPostcode);
+      const matchedArea = areaLakes.find(
+        (area) => area.postcode === trimmedPostcode
+      );
+
+      console.log(matchedArea);
       if (!matchedArea) {
         setError("No lakes found for this postcode.");
         return;
       }
 
       // Get lake names for the area
-      const names = matchedArea.lakeIds
-        .map((id) => lakeInfo[id])
-        .filter(Boolean); // Remove undefined values
+      const names = matchedArea.lakeIds.map((id) => {
+        console.log(id);
+        console.log("Lake", lakeInfo[id]);
+        return lakeInfo[id];
+      });
+      // .filter(Boolean); // Remove undefined values
+      console.log(names);
+      console.log(lakeInfo[3], matchedArea.lakeIds);
       setLakeNames(names);
+      router.refresh();
     } catch (err) {
       setError("Failed to load data. Please try again later.");
     } finally {
