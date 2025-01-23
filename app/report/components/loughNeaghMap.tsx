@@ -270,27 +270,4 @@ export function LoughNeaghMap() {
       </Card>
     </main>
   );
-
-  const MapComponent = ({ locations }) => {
-    return (
-      <MapContainer
-        center={[54.7134, -6.2079]}
-        zoom={8}
-        style={{ height: "500px" }}
-      >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {locations.map((location) => (
-          <Marker position={location.position} key={location.name}>
-            <Popup>
-              <b>{location.name}</b>
-              <br />
-              Reports: {location.reports}
-              <br />
-              Most Recent: {location.mostRecent}
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
-    );
-  };
 }
