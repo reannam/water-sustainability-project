@@ -50,14 +50,8 @@ export default function NearMePage() {
       const areaLakes = areaLakesCSV.map((row) => ({
         postcode: row[0].toUpperCase(),
         area: row[1].toUpperCase(), // Ensure case-insensitive comparison
-        lakeIds: row[2]
-          .replace(/[^0-9,]/g, "") // Remove everything except digits and commas
-          .split(",") // Split by commas
-          .map(Number),
+        lakeIds: row[2].split("."),
       }));
-
-      console.log(areaLakes[0].lakeIds);
-      console.log(trimmedPostcode);
 
       const lakeInfo = lakeInfoCSV.reduce((map, row) => {
         map[row[0]] = row[3]; // Map lake ID to lake name
@@ -69,7 +63,6 @@ export default function NearMePage() {
         (area) => area.postcode === trimmedPostcode
       );
 
-      console.log(matchedArea);
       if (!matchedArea) {
         setError("No lakes found for this postcode.");
         return;
@@ -77,13 +70,10 @@ export default function NearMePage() {
 
       // Get lake names for the area
       const names = matchedArea.lakeIds.map((id) => {
-        console.log(id);
-        console.log("Lake", lakeInfo[id]);
         return lakeInfo[id];
       });
       // .filter(Boolean); // Remove undefined values
-      console.log(names);
-      console.log(lakeInfo[3], matchedArea.lakeIds);
+
       setLakeNames(names);
       router.refresh();
     } catch (err) {
