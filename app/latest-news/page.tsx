@@ -15,7 +15,7 @@ export default function LatestNewsPage() {
   return (
     <div className="container mx-auto p-4">
       <div className="text-center mb-6">
-        <h1 className="text-4xl font-bold">Latest News</h1>
+        <h1 className="text-4xl font-bold faq-title">Latest News</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <a
