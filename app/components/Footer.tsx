@@ -44,7 +44,7 @@ export function Footer() {
           {/* Footer Texts on the Right */}
           <div className="flex space-x-4" id="footerTexts">
             <Link
-              href="/contact"
+              href="/contact-us"
               className="border-r border-gray-500 pr-5"
             >
               <strong>Contact Us</strong>
