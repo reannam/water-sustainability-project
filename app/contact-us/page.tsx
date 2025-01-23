@@ -3,6 +3,11 @@
 export default function ContactUsPage() {
   return (
     <div className="contact-us-container">
+       <img 
+          src="/logo.png" 
+          alt="Aqua Alert NI Logo" 
+          className="logo" 
+        />
       <h1 className="page-title">Contact Us</h1>
       <div className="contact-content">
         <section>

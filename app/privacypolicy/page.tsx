@@ -3,6 +3,11 @@
 export default function PrivacyPolicyPage() {
   return (
     <div className="privacy-policy-container">
+       <img 
+          src="/logo.png" 
+          alt="Aqua Alert NI Logo" 
+          className="logo" 
+        />
       <h1 className="page-title">Privacy Policy</h1>
       <div className="policy-content">
         <section>
