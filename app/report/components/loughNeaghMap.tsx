@@ -156,7 +156,7 @@ export function LoughNeaghMap() {
     <main className="grid grid-cols-3">
       <Card className="w-full max-w-md mx-auto my-auto">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-2xl font-bold text-center faq-title">
             Report Water Near You
           </CardTitle>
         </CardHeader>
@@ -217,7 +217,7 @@ export function LoughNeaghMap() {
 
       <Card className=" w-full col-span-2">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-2xl font-bold text-center faq-title">
             Recent Reports
           </CardTitle>
         </CardHeader>

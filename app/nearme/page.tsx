@@ -87,7 +87,7 @@ export default function NearMePage() {
     <div className="container mx-auto p-4 items-center justify-center my-auto">
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-2xl font-bold text-center faq-title">
             Near Me
           </CardTitle>
         </CardHeader>
