@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2>Contact Us</h2>
           <p>
-            If you have any questions or concerns about this Privacy Policy or how we handle your personal information, please contact us at [your email address].
+            If you have any questions or concerns about this Privacy Policy or how we handle your personal information, please contact us at support@aquaalertni.com.
           </p>
         </section>
       </div>
