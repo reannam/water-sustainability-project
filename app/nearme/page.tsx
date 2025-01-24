@@ -121,13 +121,13 @@ export default function NearMePage() {
               <h2 className="text-lg font-semibold mb-2">
                 Lakes Near {postcode.split(" ")[0].toUpperCase()}:
               </h2>
-              <select className="w-full p-2 border rounded">
+              
                 {lakeNames.map((name, index) => (
-                  <option key={index} value={name}>
+                  <p key={index}>
                     {name}
-                  </option>
+                  </p>
                 ))}
-              </select>
+                
             </div>
           )}
         </CardContent>
