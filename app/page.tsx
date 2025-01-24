@@ -43,12 +43,12 @@ export default function Home() {
         <div className="image-container">
           <Image
             src="/images/historicalDataImage.jpg"
-            alt="Historical"
+            alt="Historical Data"
             width={300}
             height={300}
             className="image-border object-cover hover:scale-105 transition-transform duration-300"
           />
-          <button className="image-button">Historical</button>
+          <a href="/historical-data" className="image-button">Historical Data</a>
         </div>
       </div>
       <div className="mt-16 text-center my-7">
