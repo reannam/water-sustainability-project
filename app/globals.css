@@ -393,3 +393,32 @@ html, body {
 .ul-design{
   margin-bottom: 25px;
 }
+
+#phInfo{
+  color: var(--turquoise);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: medium;
+  margin-bottom: 70px;
+}
+
+#phTitle{
+  color: var(--turquoise);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 3rem;
+}
+
+#phWeeTitles{
+  color: var(--turquoise);
+  font-family: Arial, sans-serif;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+#pHLinks{
+  padding-top: 100px;
+  color:#38cbe6;
+  text-decoration: underline;
+  font-size: smaller;
+}
