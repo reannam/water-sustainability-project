@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from "recharts";
 
 // Helper function to load CSV
 const loadCSV = async (url: string): Promise<string[][]> => {
@@ -89,7 +89,7 @@ export default function LoughNeaghPHLevels() {
                   domain={[7, 8.5]}
                   label={{ value: "pH", angle: -90, position: "insideLeft" }}
                 />
-                <ChartTooltip content={<CustomTooltip />} />
+                <Tooltip content={<CustomTooltip />} />
                 <Line
                   type="monotone"
                   dataKey="ph"
@@ -110,14 +110,11 @@ export default function LoughNeaghPHLevels() {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <ChartTooltipContent>
-        <div className="text-sm font-medium">
-          Year: {label}
-          <br />
-          pH: {payload[0].value}
-        </div>
-      </ChartTooltipContent>
-    );
+      <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg">
+        <p className="text-sm font-semibold text-gray-600">Year: {label}</p>
+        <p className="text-lg font-bold faq-title">pH: {payload[0].value}</p>
+      </div>
+    )
   }
-  return null;
+  return null
 };
