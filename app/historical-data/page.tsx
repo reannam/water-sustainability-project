@@ -5,62 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
+import LoughNeaghPHLevels from "../historical-data/components/loughNeaghPHLevels";
 
 import Image from "next/image";
 
-const loadCSV = async (url: string): Promise<string[][]> => {
-  const response = await fetch(url);
-  const csvText = await response.text();
-  return csvText
-    .trim()
-    .split("\n")
-    .map((line) => line.split(",").map((cell) => cell.trim()));
-};
 
 export default function HistoricalData() {
-
-  try {
-    // Load CSV data
-    const historicalData = await loadCSV("/lakeWaters/historicData.csv");
-
-    // Convert CSV rows into structured objects
-    const areaLakes = areaLakesCSV.map((row) => ({
-      postcode: row[0].toUpperCase(),
-      area: row[1].toUpperCase(), // Ensure case-insensitive comparison
-      lakeIds: row[2].split("."),
-    }));
-
-    const lakeInfo = lakeInfoCSV.reduce((map, row) => {
-      map[row[0]] = row[3]; // Map lake ID to lake name
-      return map;
-    }, {} as Record<string, string>);
-
-    // Find lakes for the entered postcode
-    const matchedArea = areaLakes.find(
-      (area) => area.postcode === trimmedPostcode
-    );
-
-    if (!matchedArea) {
-      setError("No lakes found for this postcode.");
-      return;
-    }
-
-    // Get lake names for the area
-    const names = matchedArea.lakeIds.map((id) => {
-      return lakeInfo[id];
-    });
-    // .filter(Boolean); // Remove undefined values
-
-    setLakeNames(names);
-    router.refresh();
-  } catch (err) {
-    setError("Failed to load data. Please try again later.");
-  } finally {
-    setIsLoading(false);
-  }
-};
-
-
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -71,7 +21,10 @@ export default function HistoricalData() {
         pH level Data from each January, 1990 - 2018
       </h2>
 
-       {/* graph here  */}
+      <div>
+          <LoughNeaghPHLevels/>
+      </div>
+      
 
       <section className="mb-8">
         <h3 id="phWeeTitles">About this data</h3>
