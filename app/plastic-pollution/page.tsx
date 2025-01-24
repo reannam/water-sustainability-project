@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function PlasticPollutionNIPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6 text-center">
+      <h1 className="text-4xl font-bold mb-6 text-center faq-title">
         Plastic Pollution in Northern Ireland
       </h1>
 
