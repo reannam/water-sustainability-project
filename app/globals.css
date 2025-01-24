@@ -152,7 +152,7 @@ html, body {
   padding: 20px;
   color: #333;
   font-family: Arial, sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 /* Card styles */
@@ -183,6 +183,7 @@ html, body {
   font-size: 1.5rem;
   color: rgb(0, 0, 0);
   margin-bottom: 10px;
+  color: var(--turquoise);
 }
 
 .intro p {
@@ -382,4 +383,13 @@ html, body {
 
 .contact-content a:hover {
   text-decoration: underline;
+}
+.faq-title{
+  color: var(--turquoise);
+}
+.section-spacing{
+  margin-bottom: 40px;
+}
+.ul-design{
+  margin-bottom: 25px;
 }

@@ -50,9 +50,15 @@ export function Footer() {
               <strong>Contact Us</strong>
             </Link>
             <Link
-              href="/privacypolicy"
+              href="/privacypolicy" 
+              className="border-r border-gray-500 pr-5"
             >
               <strong>Privacy Policy</strong>
+            </Link>
+            <Link
+              href="/faq"
+            >
+              <strong>FAQ</strong>
             </Link>
           </div>
         </div>
